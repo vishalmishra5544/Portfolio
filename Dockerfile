@@ -8,6 +8,6 @@ RUN npm run build -- --configuration production --base-href "/portfolio-app/"
 
 # Stage 2: Serve static files
 FROM nginx:alpine
-COPY --from=builder /app/dist/portfolio-app /usr/share/nginx/html
+COPY --from=builder /app/dist/portfolio-app/browser /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
