@@ -20,12 +20,12 @@ jobs:
       # Build the Docker image from the root (where Dockerfile is)
       - name: Build Docker Image
         run: |
-          docker build -t Portfolio:latest -f Dockerfile .
+          docker build -t portfolio-app:latest -f Dockerfile .
 
       # Run the container and extract static files
       - name: Extract Static Files
         run: |
-          docker create --name temp-container Portfolio:latest
+          docker create --name temp-container portfolio-app:latest
           docker cp temp-container:/usr/share/nginx/html ./dist-output
           docker rm temp-container
 
